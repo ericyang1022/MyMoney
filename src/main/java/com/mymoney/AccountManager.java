@@ -17,7 +17,7 @@ import com.mymoney.persistence.HibernateUtil;
  * See http://www.hibernate.org/hib_docs/reference/en/html/tutorial-firstapp.html#tutorial-firstapp-workingpersistence
  */
 public class AccountManager {
-	
+	//
 	static Logger logger = Logger.getLogger(AccountManager.class);
 	
 	    public static void main(String[] args) {
