@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="com.mymoney.model.Account"  >
+  		<id name="id" column="ACCOUNT_ID">
+            <generator class="native"/>
+        </id>
+        <property name="name"/>
+        <property name="shortName"/>
+        <property name="accountNum"/>
+        <property name="notes"/>
+        <component name="openingBalance" class="com.domainlanguage.money.Money">
+			<property access="field" name="amount"/>
+			<property access="field" name="currency"/>
+		</component>
+		<set name="transactions" table="ACCOUNT_TRANSACTION" inverse="true">
+            <key column="ACCOUNT_ID"/>
+            <many-to-many column="TRANSACTION_ID" class="com.mymoney.model.Transaction"/>
+        </set>
+
+  	
+  </class>
+</hibernate-mapping>

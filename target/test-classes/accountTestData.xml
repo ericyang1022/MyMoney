@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!--
+    Just a basic set of rows that are currently sufficient for all tests.
+    In future, maybe several datasets are required.
+-->
+<dataset>
+	
+    <ACCOUNT
+        ACCOUNT_ID          ="1"
+        NAME				="Account1"
+        SHORTNAME           ="Acc1"
+        ACCOUNTNUM          ="A1"
+        NOTES            	="notes1"
+        AMOUNT      		="1.00"
+        CURRENCY      		="USD"
+    />
+    
+    <ACCOUNT
+        ACCOUNT_ID          ="2"
+        NAME				="Account2"
+        SHORTNAME           ="Acc2"
+        ACCOUNTNUM          ="A2"
+        NOTES            	="notes2"
+        AMOUNT      		="2.00"
+        CURRENCY      		="USD"
+    />
+
+</dataset>
