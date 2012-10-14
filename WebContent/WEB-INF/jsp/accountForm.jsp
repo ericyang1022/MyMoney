@@ -49,13 +49,13 @@
 		<tr>
 			<th>Currency: ${account.currency}</th>
 		</tr>
-		
+
 	</table>
 
 	<table class="table-buttons">
 		<tr>
 			<td><c:choose>
-				<c:when test="${account.new}">
+				<c:when test="${account['new']}">  ${client['new']}
 					<p class="submit"><input type="submit" value="Add Account" /></p>
 				</c:when>
 				<c:otherwise>

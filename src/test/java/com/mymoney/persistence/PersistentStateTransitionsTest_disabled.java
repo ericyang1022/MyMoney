@@ -6,6 +6,7 @@ import java.util.Currency;
 import org.dbunit.operation.DatabaseOperation;
 import org.hibernate.Hibernate;
 import org.hibernate.StatelessSession;
+import org.junit.Ignore;
 import org.testng.annotations.Test;
 
 import com.domainlanguage.money.Money;
@@ -20,7 +21,8 @@ import com.mymoney.persistence.HibernateUtil;
  * @author Shaun Abram
  * @originalAuthor Christian Bauer
  */
-public class PersistentStateTransitionsTest extends HibernateIntegrationTest {
+@Ignore
+public class PersistentStateTransitionsTest_disabled extends HibernateIntegrationTest {
 
     DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
 
@@ -29,6 +31,7 @@ public class PersistentStateTransitionsTest extends HibernateIntegrationTest {
         beforeTestOperations.add(DatabaseOperation.CLEAN_INSERT);
     }
 
+    @Ignore
     @Test(groups = "integration-hibernate")
     public void storeAndLoadItem() {
 
