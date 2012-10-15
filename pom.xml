@@ -111,7 +111,7 @@
         <dependency>
             <groupId>com.domainlanguage</groupId>
             <artifactId>timeandmoney</artifactId>
-            <version>0.5.1</version>
+            <version>v0_5_1</version>
         </dependency>
 
     </dependencies>
