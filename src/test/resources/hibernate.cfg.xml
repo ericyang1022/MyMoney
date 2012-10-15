@@ -9,7 +9,7 @@
     
         <!-- Hypersonic Database connection settings -->
         <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-        <property name="connection.url">jdbc:hsqldb:hsql://localhost</property>
+        <property name="connection.url">jdbc:hsqldb:mem:mymoney</property>
         <property name="connection.username">sa</property>
         <property name="connection.password"></property>
         <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
@@ -36,9 +36,9 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <!-- Drop and re-create the database schema on startup   
+        <!-- Drop and re-create the database schema on startup   -->
         <property name="hbm2ddl.auto">create</property>
-        --> 
+
         
 
         <mapping resource="Account.hbm.xml"/>
