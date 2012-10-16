@@ -1,11 +1,12 @@
 package com.mymoney.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
 import com.domainlanguage.money.Money;
 
-public class Transaction {
+public class Transaction implements Serializable {
 
 	private Long id;
 	

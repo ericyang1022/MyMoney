@@ -65,6 +65,7 @@ public class HibernateUtil {
 
     private static String getEnv() {
         String env = System.getProperty("mymoney.env");
+        System.out.println("MyMoney Environment = " + env);
         if (env == null) env = "";
         else env = env + ".";
         return env;
