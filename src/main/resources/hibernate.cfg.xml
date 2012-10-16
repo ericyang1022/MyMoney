@@ -35,10 +35,9 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <!-- Drop and re-create the database schema on startup-->
+        <!-- Drop and re-create the database schema on startup
         <property name="hbm2ddl.auto">create</property>
-
-
+        -->
 
         <mapping resource="Account.hbm.xml"/>
         <mapping resource="Transaction.hbm.xml"/>
