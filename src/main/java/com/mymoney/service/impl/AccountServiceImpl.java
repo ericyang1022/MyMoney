@@ -42,9 +42,6 @@ public class AccountServiceImpl implements AccountService {
                     .getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
         }
-
-        //ensure we dont actually return persisted objects - as a test
-        //accounts = new ArrayList<Account>();
         
 		return accounts;
 	}
