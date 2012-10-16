@@ -1,7 +1,8 @@
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
   <table class="footer">
     <tr>
-      <td><a href="/MyMoney">Home</a></td>
+      <td><a href="${contextPath}">Home</a></td>
     </tr>
   </table>
 
