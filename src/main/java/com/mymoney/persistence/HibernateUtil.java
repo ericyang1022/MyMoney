@@ -42,14 +42,14 @@ public class HibernateUtil {
         // Create the initial SessionFactory from the default configuration files
         try {
             String env = getEnv();
-            log.debug("Initializing Hibernate for " + env + "environment");
+            log.debug("Initializing Hibernate");
 
             // Read hibernate.properties, if present
             configuration = new Configuration();
             // Use annotations: configuration = new AnnotationConfiguration();
 
             // Read environment specific hibernate.cfg.xml (has to be present)
-            configuration.configure(env + ".hibernate.cfg.xml");
+            configuration.configure(env + "hibernate.cfg.xml");
 
             // Build and store (either in JNDI or static variable)
             rebuildSessionFactory(configuration);
@@ -65,7 +65,8 @@ public class HibernateUtil {
 
     private static String getEnv() {
         String env = System.getProperty("mymoney.env");
-        if (env == null) env = "prod";
+        if (env == null) env = "";
+        else env = env + ".";
         return env;
     }
 
