@@ -2,7 +2,7 @@
 
   <table class="footer">
     <tr>
-      <td><a href="${contextPath}">Home</a></td>
+      <td><a href="${contextPath}/">Home</a></td>
     </tr>
   </table>
 
