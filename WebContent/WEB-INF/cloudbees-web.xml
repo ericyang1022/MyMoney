@@ -1,9 +1,16 @@
-<resource name="jdbc/mymoney" auth="Container" type="javax.sql.DataSource">
-    <param name="username" value="mymoney" />
-    <param name="password" value="mym0n3y" />
-    <param name="url" value="jdbc:cloudbees://mymoney" />
+<?xml version="1.0"?>
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+    <!-- Application ID (formatted CB_ACCOUNT/APPNAME) -->
+    <appid>shaunabram/mymoney</appid>
 
-    <!-- Avoiding Database Idle Timeouts -->
-    <param name="validationQuery" value="SELECT 1" />
-    <param name="testOnBorrow" value="true" />
-</resource>
+    <resource name="jdbc/mymoney" auth="Container" type="javax.sql.DataSource">
+        <param name="username" value="mymoney"/>
+        <param name="password" value="mym0n3y"/>
+        <param name="url" value="jdbc:cloudbees://mymoney"/>
+
+        <!-- Avoiding Database Idle Timeouts -->
+        <param name="validationQuery" value="SELECT 1"/>
+        <param name="testOnBorrow" value="true"/>
+    </resource>
+
+</cloudbees-web-app>
