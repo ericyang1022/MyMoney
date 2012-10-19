@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" href="<c:url value="/styles/mymoney.css"/>" type="text/css"/>
-  <title>App</title>	
+  <title>MyMoney</title>
 </head>
 
 <body>
