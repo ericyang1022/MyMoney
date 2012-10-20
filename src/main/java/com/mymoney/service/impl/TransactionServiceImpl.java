@@ -20,16 +20,16 @@ public class TransactionServiceImpl implements TransactionService {
         //rather than have transaction code in every service method?
         //e.g. Look into Spring Transaction Management
         //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-			session.beginTransaction();
+//			session.beginTransaction();
 			transactionDAO.makePersistent(transaction);
-			session.getTransaction().commit();
+//			session.getTransaction().commit();
         } catch (Exception ex) {
-            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
+//            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
         } finally {
-            session.close();
+//            session.close();
         }
 	}
 }

@@ -10,15 +10,17 @@
 <bean id="daoFactory" class="com.mymoney.dao.hibernate.HibernateDAOFactory"> 
 </bean> 
 
-<bean id="accountDao" factory-bean="daoFactory" factory-method="getAccountDAO"/> 
-<bean id="transactionDao" factory-bean="daoFactory" factory-method="getTransactionDAO"/>
+<bean id="accountDAO" factory-bean="daoFactory" factory-method="getAccountDAO"/>
+<bean id="transactionDAO" factory-bean="daoFactory" factory-method="getTransactionDAO"/>
 
 <!-- bean name="accountDao" class="com.mymoney.dao.hibernate.HibernateDAOFactory.AccountDAOHibernate"/>
       --> 
-<bean name="accountService" class="com.mymoney.service.impl.AccountServiceImpl"/>
+<bean name="accountService" class="com.mymoney.service.impl.AccountServiceImpl">
+    <property name="accountDAO" ref="accountDAO"/>
+</bean>
  
 <bean name="transactionService" class="com.mymoney.service.impl.TransactionServiceImpl">
-	<property name="transactionDAO" ref="transactionDao"/>
+	<property name="transactionDAO" ref="transactionDAO"/>
 </bean>
  
  	

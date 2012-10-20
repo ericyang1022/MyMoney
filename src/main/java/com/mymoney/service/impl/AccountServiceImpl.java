@@ -13,10 +13,11 @@ public class AccountServiceImpl implements AccountService {
 
 	private AccountDAO accountDAO = null;
 	
-	public AccountServiceImpl() {
-		//TODO tmp workaround - change to use dependency injection
-		accountDAO = new com.mymoney.dao.hibernate.HibernateDAOFactory.AccountDAOHibernate();
-	}
+//	public AccountServiceImpl() {
+//		//TODO tmp workaround - change to use dependency injection
+//		//accountDAO = new com.mymoney.dao.hibernate.HibernateDAOFactory.AccountDAOHibernate();
+////        this.accountDAO = accountDAO;
+//	}
 	
 	public List<Account> getAccounts() {
 		List<Account> accounts = null;
@@ -25,16 +26,16 @@ public class AccountServiceImpl implements AccountService {
         //rather than have transaction code in every service method?
         //Look into Spring Transaction Management
         //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			session.beginTransaction();
+//			session.beginTransaction();
 			accounts = accountDAO.findAll();
-			session.getTransaction().commit();
+//			session.getTransaction().commit();
         } catch (Exception ex) {
-            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
+//            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
         } finally {
-            session.close();
+//            session.close();
         }
         
 		return accounts;
@@ -49,16 +50,16 @@ public class AccountServiceImpl implements AccountService {
         //rather than have transaction code in every service method?
         //e.g. Look into Spring Transaction Management
         //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			session.beginTransaction();
+//			session.beginTransaction();
 			accountDAO.makePersistent(account);
-			session.getTransaction().commit();
+//			session.getTransaction().commit();
         } catch (Exception ex) {
-            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
+//            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
         } finally {
-            session.close();
+//            session.close();
         }
 	}
 	
