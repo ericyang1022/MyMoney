@@ -21,13 +21,15 @@ public class AccountServiceImpl implements AccountService {
 	
 	public List<Account> getAccounts() {
 		List<Account> accounts = null;
-		
+
+//        Session session = HibernateUtil.getSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			//TODO must be a more elegant way to do this 
 			//rather than have transaction code in every service method?
 			//Look into Spring Transaction Management
 			//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-			Session session = HibernateUtil.getSession();
+
 			session.beginTransaction();
 			
 			boolean sessionOpen = session.isOpen();
@@ -41,6 +43,8 @@ public class AccountServiceImpl implements AccountService {
             HibernateUtil.getSessionFactory()
                     .getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
+        } finally {
+            session.close();
         }
         
 		return accounts;
