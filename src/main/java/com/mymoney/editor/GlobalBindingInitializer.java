@@ -14,10 +14,8 @@ public class GlobalBindingInitializer implements WebBindingInitializer {
 
     public void initBinder(WebDataBinder binder, WebRequest request) {
         binder.registerCustomEditor(Money.class, new MoneyEditor());
-
         CustomDateEditor editor = new CustomDateEditor(new SimpleDateFormat("MM/dd/yyyy"), true);
         binder.registerCustomEditor(Date.class, editor);
-
     }
 
 }

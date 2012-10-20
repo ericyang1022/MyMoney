@@ -1,5 +1,7 @@
 package com.mymoney.model;
 
+//User is unused yet - will use when login & security introduced
+@SuppressWarnings("unused")
 public class User {
 
 	private Long id;
@@ -7,7 +9,7 @@ public class User {
 	private String username;
 	private String password;
 	
-	private String firstName; //NB Think I would like to replace fn and ln with Name...
+	private String firstName;
 	private String lastName;
 	
 	/**

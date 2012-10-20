@@ -3,6 +3,8 @@ package com.mymoney.model;
 import java.util.HashSet;
 import java.util.Set;
 
+//Categories are unused yet - currently still implemented directly as Strings in Transaction class
+@SuppressWarnings("unused")
 public class Category /*extends BaseEntity*/ {
 
 	
@@ -23,10 +25,6 @@ public class Category /*extends BaseEntity*/ {
 	
 	public void addSubcategory(String subcategory) {
 		this.subcategories.add(subcategory);
-	}
-	
-	public void setSubcategories(Set<String> subcategories) {
-		subcategories = this.subcategories;
 	}
 	
 }

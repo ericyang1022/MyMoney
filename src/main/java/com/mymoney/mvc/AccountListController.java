@@ -30,9 +30,7 @@ public class AccountListController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	protected ModelAndView handleRequestInternal()  {
-		
 		List<Account> accounts = accountService.getAccounts(); //should take user Id at some point!
-		
 		String viewName = "accountList";
 		String modelName = "accounts";
 		return new ModelAndView(viewName, modelName, accounts);	

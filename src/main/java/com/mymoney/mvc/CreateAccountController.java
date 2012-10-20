@@ -18,7 +18,6 @@ import com.mymoney.validation.AccountValidator;
 public class CreateAccountController {
 
 	private AccountService accountService;
-	//private AccountDAO accountDAO;
 
 	@Autowired
 	public CreateAccountController(AccountService accountService) {

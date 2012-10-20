@@ -9,7 +9,6 @@ import com.domainlanguage.money.Money;
 
 public class Account extends BaseEntity {
 
-	//TODO probably not the best place for this!
 	public static final Currency DEFAULT_CURRENCY = Currency.getInstance("USD");
 	
 	private String name;
@@ -17,8 +16,8 @@ public class Account extends BaseEntity {
 	private String accountNum;
 	private String notes;
 	private Money openingBalance;
-	private Set<Transaction> transactions = new HashSet<Transaction>();
-	public Currency currency;	
+	private Currency currency;
+    private Set<Transaction> transactions = new HashSet<Transaction>();
 	/**
 	 * Fields not being stored:
 	 * 		balance - calculate.
@@ -31,13 +30,10 @@ public class Account extends BaseEntity {
 	 * 		Currency
 	 * 		interestRate
 	 */
-	
-	//no org constructor for hibernate
-	//TODO check still required after intro of BaseEntity
+
 	public Account() {
 		//opening balance defaults to zero
 		openingBalance = Money.valueOf(new BigDecimal(0.0), DEFAULT_CURRENCY);
-		
 		currency = DEFAULT_CURRENCY;
 	}
 	
@@ -74,12 +70,14 @@ public class Account extends BaseEntity {
 	public Currency getCurrency() {
 		return currency;
 	}
+    @SuppressWarnings("unused")
 	public void setCurrency(Currency currency) {
 		this.currency = currency;
 	}
 	public Set<Transaction> getTransactions() {
 		return transactions;
 	}
+    @SuppressWarnings("unused")
 	public void setTransactions(Set<Transaction> transactions) {
 		this.transactions = transactions;
 	}
@@ -92,10 +90,10 @@ public class Account extends BaseEntity {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
-		sb.append("(" + shortName + ") ");
+		sb.append("(").append(shortName).append(") ");
 		sb.append(accountNum);
-		sb.append("/" + notes);
-		sb.append("/" + openingBalance);
+		sb.append("/").append(notes);
+		sb.append("/").append(openingBalance);
 		return sb.toString();
 	}
 	

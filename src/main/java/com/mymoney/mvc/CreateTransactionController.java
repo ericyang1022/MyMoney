@@ -39,8 +39,6 @@ public class CreateTransactionController {
 		Account account = accountDAO.findById(accountId);
 		Transaction transaction = new Transaction();
 		transaction.setAccount(account);
-		//account.addTransaction(transaction);		
-		
 		model.addAttribute(transaction);
 		return "transactionForm";
 	}
@@ -49,8 +47,7 @@ public class CreateTransactionController {
 	public String processSubmit(@ModelAttribute Transaction transaction) {
 		Account account = transaction.getAccount();
 		account.addTransaction(transaction);
-		transactionService.addTransaction(transaction);	
-		
+		transactionService.addTransaction(transaction);
 		return "redirect:transactionList.htm?accountId=" + account.getId();
 	}
 	

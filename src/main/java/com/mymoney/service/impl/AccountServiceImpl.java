@@ -1,6 +1,5 @@
 package com.mymoney.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
