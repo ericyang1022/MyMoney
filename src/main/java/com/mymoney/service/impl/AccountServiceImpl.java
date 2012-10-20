@@ -15,33 +15,24 @@ public class AccountServiceImpl implements AccountService {
 	private AccountDAO accountDAO = null;
 	
 	public AccountServiceImpl() {
-		//TODO hack! remove ASAP
+		//TODO tmp workaround - change to use dependency injection
 		accountDAO = new com.mymoney.dao.hibernate.HibernateDAOFactory.AccountDAOHibernate();
 	}
 	
 	public List<Account> getAccounts() {
 		List<Account> accounts = null;
 
-//        Session session = HibernateUtil.getSession();
+        //TODO must be a more elegant way to do this
+        //rather than have transaction code in every service method?
+        //Look into Spring Transaction Management
+        //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			//TODO must be a more elegant way to do this 
-			//rather than have transaction code in every service method?
-			//Look into Spring Transaction Management
-			//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
 			session.beginTransaction();
-			
-			boolean sessionOpen = session.isOpen();
-			accounts = accountDAO.findAll();			
-			
-			// End the unit of work
-			session.getTransaction().commit();             
-			//session.close();
-
+			accounts = accountDAO.findAll();
+			session.getTransaction().commit();
         } catch (Exception ex) {
-            HibernateUtil.getSessionFactory()
-                    .getCurrentSession().getTransaction().rollback();
+            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
         } finally {
             session.close();
@@ -49,32 +40,26 @@ public class AccountServiceImpl implements AccountService {
         
 		return accounts;
 	}
-	
-	//TODO hack! remove ASAP
+
 	public void setAccountDAO(AccountDAO accountDAO) {
 		this.accountDAO = accountDAO;
-		//accountDAO = new com.mymoney.dao.hibernate.HibernateDAOFactory.AccountDAOHibernate();
 	}
 	
 	public void addAccount(Account account) {
+        //TODO must be a more elegant way to do this
+        //rather than have transaction code in every service method?
+        //e.g. Look into Spring Transaction Management
+        //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			//TODO must be a more elegant way to do this 
-			//rather than have transaction code in every service method?
-			//Look into Spring Transaction Management
-			//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-			Session session = HibernateUtil.getSession();
 			session.beginTransaction();
-
-			accountDAO.makePersistent(account);	
-			
-			// End the unit of work
-			session.getTransaction().commit();             
-			//session.close();
-
+			accountDAO.makePersistent(account);
+			session.getTransaction().commit();
         } catch (Exception ex) {
-            HibernateUtil.getSessionFactory()
-                    .getCurrentSession().getTransaction().rollback();
+            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
+        } finally {
+            session.close();
         }
 	}
 	

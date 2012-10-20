@@ -10,34 +10,26 @@ import com.mymoney.service.TransactionService;
 public class TransactionServiceImpl implements TransactionService {
 
 	private TransactionDAO transactionDAO = null;
-	
-	public TransactionDAO getTransactionDAO() {
-		return transactionDAO;
-	}
 
 	public void setTransactionDAO(TransactionDAO transactionDAO) {
 		this.transactionDAO = transactionDAO;		
 	}
 	
 	public void addTransaction(Transaction transaction) {
-		try {
-			//TODO must be a more elegant way to do this 
-			//rather than have transaction code in every service method?
-			//Look into Spring Transaction Management
-			//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-			Session session = HibernateUtil.getSession();
+        //TODO must be a more elegant way to do this
+        //rather than have transaction code in every service method?
+        //e.g. Look into Spring Transaction Management
+        //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
 			session.beginTransaction();
-
-			transactionDAO.makePersistent(transaction);	
-			
-			// End the unit of work
-			session.getTransaction().commit();             
-			//session.close();
-
+			transactionDAO.makePersistent(transaction);
+			session.getTransaction().commit();
         } catch (Exception ex) {
-            HibernateUtil.getSessionFactory()
-                    .getCurrentSession().getTransaction().rollback();
+            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
             ex.printStackTrace();
+        } finally {
+            session.close();
         }
 	}
 }
