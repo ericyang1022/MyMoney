@@ -19,7 +19,7 @@ served its purpose of getting more up to speed on the aforementioned technologie
 
 ###Run locally
 To run locally:
-* Checkout from GitHub (http://sabram.github.com/MyMoney)
+* Checkout from GitHub (https://github.com/sabram/MyMoney)
 * Setup a local MySQL database and set up the schema by doing something like
       mysql -u root -p mymoney < mymoney.sql
 * To run in dev mode, set an system property such as mymoney.env=dev. It defaults to running in prod mode.
