@@ -6,7 +6,7 @@
     <resource name="jdbc/mymoney" auth="Container" type="javax.sql.DataSource">
         <param name="username" value="mymoney"/>
         <param name="password" value="mym0n3y"/>
-        <param name="url" value="jdbc:cloudbees://mymoney"/>
+        <param name="url" value="jdbc:mysql://ec2-23-21-211-172.compute-1.amazonaws.com:3306/mymoney"/>
 
         <!-- Connection Pool settings -->
         <param name="maxActive" value="5" />
