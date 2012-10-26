@@ -22,6 +22,7 @@
 		<property name="connection.password">mym0n3y</property>
 
 -->
+        <property name="connection.url">jdbc:cloudbees://mymoney</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- JDBC connection pool (use the built-in) -->
