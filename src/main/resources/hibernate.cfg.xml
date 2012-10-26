@@ -15,13 +15,13 @@
         <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
         -->
     
-    	<!-- MySQL Database connection settings -->
+    	<!-- MySQL Database connection settings
 	    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">jdbc:cloudbees://mymoney</property>
 		<property name="connection.username">mymoney</property>
 		<property name="connection.password">mym0n3y</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-
+-->
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
        
