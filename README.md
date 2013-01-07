@@ -3,6 +3,8 @@ MyMoney is a simple web app for entering and tracking spending details.
 It allows you to create accounts (for example Cash or Checking) and enter transactions associated
 with those accounts.
 
+All code is available under the permissive opensource MIT license.
+
 The app is (usually!) running at http://mymoney.shaunabram.cloudbees.net
 (Note that it may be a little slow to load first time as I'm using the free account from the
 CloudBees service, which means the server is hibernated when not in use).
